@@ -45,7 +45,7 @@ public class Piece : MonoBehaviour
         _tweener = GetComponent<InstantTweener>();
     }
 
-    public void Setup(Vector2Int coords, TeamColor teamColor, Board board)
+    public void Setup(Vector2Int coords, TeamColor teamColor, Board board, Material material)
     {
         occupiedSquare = coords;
         startSquare = coords;
@@ -53,7 +53,7 @@ public class Piece : MonoBehaviour
         Board = board;
         transform.position = board.CalculatePositionFromCoords(coords);
         board.SetPiece(this, coords);
-        SetMaterial(PieceCreator.Instance.GetTeamMaterial(teamColor));
+        SetMaterial(material);
     }
 
     public void SetMaterial(Material material)

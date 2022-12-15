@@ -53,14 +53,7 @@ public class GameManager : SingletonMonobehavior<GameManager>
         switch (mode)
         {
             case PlayMode.PvP:
-                if (ChessGameController.Instance != null)
-                {
-                    ChessGameController.Instance.RestartGame();
-                }
-                else
-                {
-                    LoadScene(SceneTags.Game);
-                }
+                LoadScene(SceneTags.Game);
                 break;
             case PlayMode.PvE:
                 LoadScene(SceneTags.Game);
@@ -70,14 +63,11 @@ public class GameManager : SingletonMonobehavior<GameManager>
 
     private void LoadScene(SceneTags scene)
     {
-        if (currentScene == scene)
+        SceneManager.UnloadSceneAsync(currentScene.ToString()).completed += operation =>
         {
-            return;
-        }
-
-        SceneManager.UnloadSceneAsync(currentScene.ToString());
-        SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Additive);
-        currentScene = scene;
+            SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Additive);
+            currentScene = scene;
+        };
     }
 
     public void UpdateRoom(RoomInfo roomInfo)

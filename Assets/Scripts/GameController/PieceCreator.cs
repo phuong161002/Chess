@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 
-public class PieceCreator : SingletonMonobehavior<PieceCreator>
+public class PieceCreator : MonoBehaviour
 {
     [SerializeField] private GameObject[] piecesPrefab;
     [SerializeField] private Material whiteMaterial;
@@ -12,10 +12,8 @@ public class PieceCreator : SingletonMonobehavior<PieceCreator>
 
     private Dictionary<string, GameObject> nameToPieceDict;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-        
         InitDictionary();
     }
 
@@ -33,7 +31,7 @@ public class PieceCreator : SingletonMonobehavior<PieceCreator>
     {
         if (nameToPieceDict.TryGetValue(type.ToString(), out GameObject prefab))
         {
-            GameObject pieceGO = Instantiate(prefab);
+            GameObject pieceGO = Instantiate(prefab, transform);
             return pieceGO.GetComponent<Piece>();
         }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SquareSelectorCreator: MonoBehaviour
+public class SquareSelectorCreator : MonoBehaviour
 {
     private Board board;
     [SerializeField] private GameObject freeSquarePrefab;
@@ -29,13 +29,15 @@ public class SquareSelectorCreator: MonoBehaviour
             // If it is free Square
             if (isFreeSquare)
             {
-                GameObject freeSquare = Instantiate(freeSquarePrefab, position, Quaternion.identity, transform);
+                GameObject freeSquare = Instantiate(freeSquarePrefab, position + Vector3.up * 0.01f,
+                    Quaternion.identity, transform);
                 instantiatedSelectors.Add(freeSquare);
             }
             // If it is enemy Square
             else
             {
-                GameObject enemySquare = Instantiate(enemySquarePrefab, position + Vector3.up * 0.01f, Quaternion.identity, transform);
+                GameObject enemySquare = Instantiate(enemySquarePrefab, position + Vector3.up * 0.01f,
+                    Quaternion.identity, transform);
                 instantiatedSelectors.Add(enemySquare);
             }
         }
@@ -43,22 +45,23 @@ public class SquareSelectorCreator: MonoBehaviour
 
     public void ShowSelectedSquare(Vector3 position)
     {
-        GameObject selectedSquare = Instantiate(selectedSquarePrefab, position, Quaternion.identity);
+        GameObject selectedSquare = Instantiate(selectedSquarePrefab, position + Vector3.up * 0.01f,
+            Quaternion.identity, transform);
         instantiatedSelectors.Add(selectedSquare);
     }
 
     public void ClearSelection()
     {
-        instantiatedSelectors.ForEach(gO => Destroy(gO));
+        instantiatedSelectors.ForEach(Destroy);
         instantiatedSelectors.Clear();
     }
 
     public void ShowMove(Move move)
     {
         GameObject startSquare = Instantiate(startSquareMovePrefab,
-            board.CalculatePositionFromCoords(move.sourceCoords), Quaternion.identity);
+            board.CalculatePositionFromCoords(move.sourceCoords), Quaternion.identity, transform);
         GameObject targetSquare = Instantiate(targetSquareMovePrefab,
-            board.CalculatePositionFromCoords(move.targetCoords), Quaternion.identity);
+            board.CalculatePositionFromCoords(move.targetCoords), Quaternion.identity, transform);
         moveSquares.Add(startSquare);
         moveSquares.Add(targetSquare);
     }
@@ -68,7 +71,8 @@ public class SquareSelectorCreator: MonoBehaviour
         foreach (GameObject moveSquare in moveSquares)
         {
             Destroy(moveSquare);
-        }   
+        }
+
         moveSquares.Clear();
     }
 

@@ -8,11 +8,12 @@ using UnityEngine.Animations;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
-public class ChessGameController : SingletonMonobehavior<ChessGameController>
+public class ChessGameController : MonoBehaviour
 {
     [SerializeField] private Board board;
     [SerializeField] private BoardLayout startingLayout;
-
+    [SerializeField] private PieceCreator _pieceCreator;
+    
     private ChessPlayer whitePlayer;
     private ChessPlayer blackPlayer;
     public ChessPlayer ActivePlayer { get; private set; }
@@ -20,11 +21,32 @@ public class ChessGameController : SingletonMonobehavior<ChessGameController>
     private CameraMovement _cameraMovement;
 
     private GameState gameState;
-
-    protected override void Awake()
+    private static ChessGameController _instance;
+    
+    public static ChessGameController Instance
     {
-        base.Awake();
+        get => _instance;
+    }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
         _cameraMovement = GetComponent<CameraMovement>();
+    }
+
+    private void OnDestroy()
+    {
+        if (_instance == this)
+        {
+            _instance = null;
+        }
     }
 
     private void Start()
@@ -80,10 +102,10 @@ public class ChessGameController : SingletonMonobehavior<ChessGameController>
     public void CreatePieceAndInitialize(TeamColor team, Vector2Int coords, PieceType pieceType)
     {
         Type type = Type.GetType(pieceType.ToString());
-        Piece piece = PieceCreator.Instance.CreatePiece(type);
+        Piece piece = _pieceCreator.CreatePiece(type);
         piece.name = team.ToString() + " " + pieceType.ToString();
         piece.pieceType = pieceType;
-        piece.Setup(coords, team, board);
+        piece.Setup(coords, team, board, _pieceCreator.GetTeamMaterial(team));
         if (piece.team == TeamColor.BLACK)
         {
             blackPlayer.AddPiece(piece);
