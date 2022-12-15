@@ -41,8 +41,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="F:\Unity Project\Chess\Assets\Plugins\DLLs\NetCoreServer.dll" />
-    <Analyzer Include="F:\Unity Project\Chess\Assets\Plugins\DLLs\websocket-sharp.dll" />
     <Analyzer Include="F:\Unity Project\Chess\Assets\Plugins\DLLs\LitJson.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -317,9 +315,6 @@
      </Reference>
      <Reference Include="LitJson">
      <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\LitJson.dll</HintPath>
-     </Reference>
-     <Reference Include="NetCoreServer">
-     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\NetCoreServer.dll</HintPath>
      </Reference>
      <Reference Include="websocket-sharp">
      <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\websocket-sharp.dll</HintPath>

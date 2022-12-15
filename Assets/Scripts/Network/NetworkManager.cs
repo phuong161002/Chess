@@ -26,7 +26,7 @@ public class NetworkManager : SingletonMonobehavior<NetworkManager>, INetworkMan
 
     private void Update()
     {
-        var cqueue = _client.receiveQueue;
+        var cqueue = _client.ReceiveQueue;
         string msg;
         while (cqueue.TryPeek(out msg))
         {

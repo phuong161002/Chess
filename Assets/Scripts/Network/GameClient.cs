@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.Text;
 using System.Collections.Concurrent;
 using UnityEngine;
 using WebSocketSharp;
@@ -18,8 +16,8 @@ public class GameClient
     // // Server address
     // private Uri serverUri;
     // Queues
-    public ConcurrentQueue<String> receiveQueue { get; }
-    public BlockingCollection<ArraySegment<byte>> sendQueue { get; }
+    public ConcurrentQueue<String> ReceiveQueue { get; }
+    public BlockingCollection<ArraySegment<byte>> SendQueue { get; }
 
     private bool _stop;
     private WebSocket _client;
@@ -27,8 +25,8 @@ public class GameClient
     public GameClient(string url)
     {
         _client = new WebSocket(url);
-        receiveQueue = new ConcurrentQueue<string>();
-        sendQueue = new BlockingCollection<ArraySegment<byte>>();
+        ReceiveQueue = new ConcurrentQueue<string>();
+        SendQueue = new BlockingCollection<ArraySegment<byte>>();
         
         _client.OnMessage += (sender, e) =>
         {
@@ -36,7 +34,7 @@ public class GameClient
             Debug.Log($"WebSocket Message: {body}");
             if (!e.IsPing)
             {
-                receiveQueue.Enqueue(e.Data);
+                ReceiveQueue.Enqueue(e.Data);
             }
         };
         
