@@ -73,7 +73,7 @@ public class ChessGameController : MonoBehaviour
 
     private void StartNewGame()
     {
-        UIManager.Instance.HideUI();
+        UIManager.Instance.SwitchTo(CanvasTags.PlayRoom);
         SetGameState(GameState.Init);
         CreatePieceFromLayout(startingLayout);
         ActivePlayer = whitePlayer;
@@ -101,15 +101,13 @@ public class ChessGameController : MonoBehaviour
 
     public void CreatePieceAndInitialize(TeamColor team, Vector2Int coords, PieceType pieceType)
     {
-        Type type = Type.GetType(pieceType.ToString());
-        Piece piece = _pieceCreator.CreatePiece(type);
+        Piece piece = _pieceCreator.CreatePiece(pieceType, team);
         piece.name = team.ToString() + " " + pieceType.ToString();
         piece.pieceType = pieceType;
-        piece.Setup(coords, team, board, _pieceCreator.GetTeamMaterial(team));
+        piece.Setup(coords, team, board);
         if (piece.team == TeamColor.BLACK)
         {
             blackPlayer.AddPiece(piece);
-            piece.transform.Rotate(0, 180, 0);
         }
         else
         {
@@ -127,7 +125,7 @@ public class ChessGameController : MonoBehaviour
         return gameState == GameState.Play;
     }
 
-    public ChessPlayer GetOpponentToPlayer(ChessPlayer player)
+    private ChessPlayer GetOpponentToPlayer(ChessPlayer player)
     {
         if (player.Team == TeamColor.WHITE)
         {

@@ -6,8 +6,12 @@ using UnityEngine;
 
 public class PlayRoomUIManager : MonoBehaviour
 {
+    public bool isGameStarted;
     [SerializeField] private TextMeshProUGUI myDisplayNameTMP;
     [SerializeField] private TextMeshProUGUI opponentDisplayNameTMP;
+    [SerializeField] private UIButton btnExitRoomOnPlaying;
+    [SerializeField] private UIButton btnExitRoom;
+    [SerializeField] private UIButton btnStartGame;
 
     public string MyDisplayName
     {
@@ -23,6 +27,24 @@ public class PlayRoomUIManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (isGameStarted)
+        {
+            btnStartGame.gameObject.SetActive(false);
+        }
+        else
+        {
+            btnStartGame.gameObject.SetActive(true);
+        }
+
+        if (GameManager.Instance.PlayMode == PlayMode.PvE)
+        {
+            myDisplayNameTMP.gameObject.SetActive(false);
+            opponentDisplayNameTMP.gameObject.SetActive(false);
+            return;
+        }
+
+        myDisplayNameTMP.gameObject.SetActive(true);
+        opponentDisplayNameTMP.gameObject.SetActive(true);
         Debug.Log("Setup name");
         var myRoom = GameManager.Instance.MyRoom;
         if (myRoom == null)
@@ -45,6 +67,12 @@ public class PlayRoomUIManager : MonoBehaviour
 
     public void ExitRoom()
     {
+        if (GameManager.Instance.PlayMode == PlayMode.PvE)
+        {
+            GameManager.Instance.JoinLobby();
+            UIManager.Instance.OnPlayerExitPlayRoom();
+            return;
+        }
         Service.Instance.ExitRoom();
     }
 }

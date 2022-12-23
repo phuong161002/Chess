@@ -115,4 +115,15 @@ public class UIManager : SingletonMonobehavior<UIManager>
         }
     }
 
+    public void OnGameStarted(PlayMode playMode)
+    {
+        playRoomUIManager.isGameStarted = true;
+        SwitchTo(CanvasTags.PlayRoom);
+    }
+
+    public void OnPlayerExitPlayRoom()
+    {
+        playRoomUIManager.isGameStarted = false;
+    }
+
 }

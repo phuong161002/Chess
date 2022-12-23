@@ -34,8 +34,8 @@ public class Board : MonoBehaviour
 
     public Vector3 CalculatePositionFromCoords(Vector2Int coords)
     {
-        return new Vector3(coords.x * squareSize + bottomLeftSquare.transform.position.x, 0,
-            coords.y * squareSize + bottomLeftSquare.transform.position.z);
+        return bottomLeftSquare.transform.position + new Vector3(coords.x * squareSize, 0,
+            coords.y * squareSize);
     }
 
     public bool CheckIfCoordsAreOnBoard(Vector2Int coords)

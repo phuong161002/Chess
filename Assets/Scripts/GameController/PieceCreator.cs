@@ -6,49 +6,55 @@ using UnityEngine;
 
 public class PieceCreator : MonoBehaviour
 {
-    [SerializeField] private GameObject[] piecesPrefab;
-    [SerializeField] private Material whiteMaterial;
-    [SerializeField] private Material blackMaterial;
-
-    private Dictionary<string, GameObject> nameToPieceDict;
+    [SerializeField] private Pawn whitePawn;
+    [SerializeField] private Pawn blackPawn;
+    [SerializeField] private Bishop whiteBishop;
+    [SerializeField] private Bishop blackBishop;
+    [SerializeField] private Rook whiteRook;
+    [SerializeField] private Rook blackRook;
+    [SerializeField] private Knight whiteKnight;
+    [SerializeField] private Knight blackKnight;
+    [SerializeField] private Queen whiteQueen;
+    [SerializeField] private Queen blackQueen;
+    [SerializeField] private King whiteKing;
+    [SerializeField] private King blackKing;
 
     private void Awake()
     {
-        InitDictionary();
+        
     }
 
-    private void InitDictionary()
+    public Piece GetPiecePrefab(PieceType pieceType, TeamColor teamColor)
     {
-        nameToPieceDict = new Dictionary<string, GameObject>();
-        foreach (GameObject gO in piecesPrefab)
+        bool isWhite = teamColor == TeamColor.WHITE;
+        switch (pieceType)
         {
-            string pieceType = gO.GetComponent<Piece>().GetType().ToString();
-            nameToPieceDict.Add(pieceType, gO);
+            case PieceType.Pawn:
+                return isWhite ? whitePawn : blackPawn;
+            case PieceType.Bishop:
+                return isWhite ? whiteBishop : blackBishop;
+            case  PieceType.Rook :
+                return isWhite ? whiteRook : blackRook;
+            case  PieceType.Knight:
+                return isWhite ? whiteKnight : blackKnight;
+            case  PieceType.Queen:
+                return isWhite ? whiteQueen : blackQueen;
+            case  PieceType.King:
+                return isWhite ? whiteKing : blackKing;
+            default:
+                return null;
         }
     }
 
-    public Piece CreatePiece(Type type)
+    public Piece CreatePiece(PieceType pieceType, TeamColor teamColor)
     {
-        if (nameToPieceDict.TryGetValue(type.ToString(), out GameObject prefab))
+        Piece prefab = GetPiecePrefab(pieceType, teamColor);
+        if (prefab == null)
         {
-            GameObject pieceGO = Instantiate(prefab, transform);
-            return pieceGO.GetComponent<Piece>();
+            return null;
         }
 
-        return null;
-    }
-
-    public Material GetTeamMaterial(TeamColor teamColor)
-    {
-        if (teamColor == TeamColor.WHITE)
-        {
-            return whiteMaterial;
-        }
-        else if (teamColor == TeamColor.BLACK)
-        {
-            return blackMaterial;
-        }
-
-        return null;
+        Piece piece = Instantiate(prefab, transform);
+        return piece;
     }
 }

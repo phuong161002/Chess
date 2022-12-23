@@ -41,9 +41,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="F:\Unity Project\Chess\Assets\Plugins\DLLs\LitJson.dll" />
-  </ItemGroup>
-  <ItemGroup>
      <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
      <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
@@ -304,6 +301,12 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.15f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
+     <Reference Include="LitJson">
+     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\LitJson.dll</HintPath>
+     </Reference>
+     <Reference Include="websocket-sharp">
+     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\websocket-sharp.dll</HintPath>
+     </Reference>
      <Reference Include="DOTween">
      <HintPath>F:\Unity Project\Chess\Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
      </Reference>
@@ -312,12 +315,6 @@
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>F:\Unity Project\Chess\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="LitJson">
-     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\LitJson.dll</HintPath>
-     </Reference>
-     <Reference Include="websocket-sharp">
-     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\websocket-sharp.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.15f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

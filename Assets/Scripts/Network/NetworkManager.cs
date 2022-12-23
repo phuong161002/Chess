@@ -90,6 +90,7 @@ public class NetworkManager : SingletonMonobehavior<NetworkManager>, INetworkMan
                 break;
             case WsTags.ExitRoom:
                 GameManager.Instance.JoinLobby();
+                UIManager.Instance.OnPlayerExitPlayRoom();
                 break;
             default: break;
         }

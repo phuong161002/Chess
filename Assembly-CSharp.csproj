@@ -41,9 +41,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="F:\Unity Project\Chess\Assets\Plugins\DLLs\LitJson.dll" />
-  </ItemGroup>
-  <ItemGroup>
      <Compile Include="Assets\Scripts\Board\VirtualBoard.cs" />
      <Compile Include="Assets\Scripts\Pieces\Knight.cs" />
      <Compile Include="Assets\Scripts\GameController\PieceCreator.cs" />
@@ -110,71 +107,95 @@
      <Compile Include="Assets\Scripts\GameController\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\UI\PlayRoomUIManager.cs" />
      <Folder Include="Assets" />
-     <Folder Include="Assets\BrokenVector\LowpolyChessPack" />
+     <Folder Include="Assets\Chess Package\BrokenVector\LowpolyChessPack" />
      <Folder Include="Assets\Scenes" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMPro.cginc" />
      <Folder Include="Assets\Data" />
-     <Folder Include="Assets\BrokenVector\LowpolyChessPack\Models" />
+     <Folder Include="Assets\Chess Package\BrokenVector\LowpolyChessPack\Models" />
      <Folder Include="Assets\Scripts\Board" />
      <Folder Include="Assets\Scripts\Input Handler" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <Folder Include="Assets\TextMesh Pro\Sprites" />
-     <Folder Include="Assets\BrokenVector\LowpolyChessPack\Prefabs" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro\Sprites" />
+     <Folder Include="Assets\Chess Package\RenderTexture" />
+     <Folder Include="Assets\Chess Package\BrokenVector\LowpolyChessPack\Prefabs" />
      <Folder Include="Assets\Scripts\UI" />
-     <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
+     <Folder Include="Assets\Chess Package\_Project" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro\Resources\Sprite Assets" />
      <Folder Include="Assets\Prefabs\UI\Room" />
+     <None Include="Assets\Chess Package\Resources\BillingMode.json" />
      <Folder Include="Assets\Scripts\Pieces" />
      <Folder Include="Assets\Prefabs\Selector" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <Folder Include="Assets\Adaptive Performance" />
      <Folder Include="Assets\Scripts\Object Tweener" />
+     <Folder Include="Assets\Chess Package\Sprite" />
      <Folder Include="Assets\Scripts\Network\Messaging\Constants" />
-     <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro\Resources\Fonts &amp; Materials" />
+     <None Include="Assets\Chess Package\Shader\EivaaGames_Diffuse Cubemap.shader" />
      <Folder Include="Assets\Materials" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\Chess Package\Shader\EivaaGames_UI Addictive Stencil.shader" />
      <Folder Include="Assets\Adaptive Performance\Settings" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-     <Folder Include="Assets\TextMesh Pro\Resources" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <Folder Include="Assets\Chess Package\Cubemap" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro\Resources" />
      <Folder Include="Assets\Prefabs\Debuging" />
      <Folder Include="Assets\Scripts\Event Handler" />
+     <Folder Include="Assets\Chess Package\AudioClip" />
      <Folder Include="Assets\Scripts\Network\Models" />
      <Folder Include="Assets\Scripts\Network\Tags" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <Folder Include="Assets\TextMesh Pro" />
+     <Folder Include="Assets\Chess Package\Resources\checkerstextures" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro" />
+     <Folder Include="Assets\Chess Package" />
      <Folder Include="Assets\Prefabs\Pieces" />
      <Folder Include="Assets\Prefabs\UI" />
      <Folder Include="Assets\Scripts" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <Folder Include="Assets\Font" />
+     <Folder Include="Assets\Chess Package\Mesh" />
+     <Folder Include="Assets\Chess Package\LightingSettings" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <Folder Include="Assets\Chess Package\Shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <Folder Include="Assets\Scripts\Chess AI" />
      <Folder Include="Assets\Scripts\Network" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-     <Folder Include="Assets\TextMesh Pro\Shaders" />
-     <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
-     <Folder Include="Assets\TextMesh Pro\Fonts" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\Chess Package\Shader\Mobile_Transparent_Vertex Color.shader" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro\Shaders" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro\Resources\Style Sheets" />
+     <None Include="Assets\Chess Package\Shader\EivaaGames_Diffuse Cubemap with Rimlight.shader" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro\Fonts" />
      <Folder Include="Assets\Scripts\Network\Messaging" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\Chess Package\Shader\Hidden_BlitCopyHDRTonemap.shader" />
+     <None Include="Assets\Chess Package\Shader\Hidden_FastBlur.shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <Folder Include="Assets\Scripts\Misc" />
+     <None Include="Assets\Chess Package\Resources\iso4217.json" />
+     <Folder Include="Assets\Chess Package\Material" />
      <Folder Include="Assets\Scripts\GameController" />
      <Folder Include="Assets\Prefabs\UI\Input Field" />
-     <Folder Include="Assets\BrokenVector\LowpolyChessPack\Textures" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <Folder Include="Assets\Resources" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-     <Folder Include="Assets\TextMesh Pro\Documentation" />
-     <Folder Include="Assets\BrokenVector\LowpolyChessPack\Materials" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-     <Folder Include="Assets\BrokenVector" />
+     <Folder Include="Assets\Chess Package\_Project\_Scenes" />
+     <Folder Include="Assets\Chess Package\Texture2D" />
+     <Folder Include="Assets\Chess Package\BrokenVector\LowpolyChessPack\Textures" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\Chess Package\Shader\EivaaGames_Diffuse Cubemap with Mask.shader" />
+     <Folder Include="Assets\Chess Package\Resources" />
+     <Folder Include="Assets\Chess Package\ComputeShader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <Folder Include="Assets\Chess Package\TextMesh Pro\Documentation" />
+     <Folder Include="Assets\Chess Package\BrokenVector\LowpolyChessPack\Materials" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets\Chess Package\BrokenVector" />
      <Folder Include="Assets\Scripts\Selector" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Sprites\EmojiOne.json" />
+     <None Include="Assets\Chess Package\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <Folder Include="Assets\Prefabs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -422,6 +443,12 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.15f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
+     <Reference Include="LitJson">
+     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\LitJson.dll</HintPath>
+     </Reference>
+     <Reference Include="websocket-sharp">
+     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\websocket-sharp.dll</HintPath>
+     </Reference>
      <Reference Include="DOTween">
      <HintPath>F:\Unity Project\Chess\Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
      </Reference>
@@ -430,12 +457,6 @@
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>F:\Unity Project\Chess\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="LitJson">
-     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\LitJson.dll</HintPath>
-     </Reference>
-     <Reference Include="websocket-sharp">
-     <HintPath>F:\Unity Project\Chess\Assets\Plugins\DLLs\websocket-sharp.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.15f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

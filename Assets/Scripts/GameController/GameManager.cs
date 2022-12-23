@@ -13,13 +13,15 @@ public class GameManager : SingletonMonobehavior<GameManager>
 
     [SerializeField] private SceneTags startScene;
 
-    private SceneTags currentScene;
+    [SerializeField] private FullScreenMode screenMode;
+
+    private SceneTags _currentScene;
 
     protected override void Awake()
     {
         base.Awake();
 
-        Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
+        Screen.SetResolution(1920, 1080, screenMode);
     }
 
     private void Start()
@@ -30,19 +32,6 @@ public class GameManager : SingletonMonobehavior<GameManager>
     public bool hasLoggedIn()
     {
         return User != null;
-    }
-
-    public void StartGame(PlayMode mode)
-    {
-        if (mode == PlayMode.PvE)
-        {
-            StartGame(mode, TeamColor.WHITE);
-        }
-        else
-        {
-            TeamColor myTeamColor = MyRoom.GetHostInfo().Username == User.Username ? TeamColor.WHITE : TeamColor.BLACK;
-            StartGame(mode, myTeamColor);
-        }
     }
 
     public void StartGame(PlayMode mode, TeamColor myTeamColor)
@@ -59,14 +48,16 @@ public class GameManager : SingletonMonobehavior<GameManager>
                 LoadScene(SceneTags.Game);
                 break;
         }
+        
+        UIManager.Instance.OnGameStarted(mode);
     }
 
     private void LoadScene(SceneTags scene)
     {
-        SceneManager.UnloadSceneAsync(currentScene.ToString()).completed += operation =>
+        SceneManager.UnloadSceneAsync(_currentScene.ToString()).completed += operation =>
         {
             SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Additive);
-            currentScene = scene;
+            _currentScene = scene;
         };
     }
 

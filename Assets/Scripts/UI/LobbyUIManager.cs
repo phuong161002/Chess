@@ -47,7 +47,7 @@ public class LobbyUIManager : MonoBehaviour
 
     public void PlayPvE()
     {
-        UIManager.Instance.HideUI();
+        // UIManager.Instance.HideUI();
         GameManager.Instance.StartGame(PlayMode.PvE, TeamColor.WHITE);
     }
 

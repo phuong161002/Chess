@@ -19,13 +19,10 @@ public class Piece : MonoBehaviour
     public int numberOfPieceMoves;
     protected Vector2Int startSquare;
     private IObjectTweener _tweener;
-    public List<Move> AvailableMoves
-    {
-        get;
-        private set;
-    }
-    
+    public List<Move> AvailableMoves { get; private set; }
+
     private MaterialSetter _materialSetter;
+
     public MaterialSetter MaterialSetter
     {
         get
@@ -45,7 +42,7 @@ public class Piece : MonoBehaviour
         _tweener = GetComponent<InstantTweener>();
     }
 
-    public void Setup(Vector2Int coords, TeamColor teamColor, Board board, Material material)
+    public void Setup(Vector2Int coords, TeamColor teamColor, Board board)
     {
         occupiedSquare = coords;
         startSquare = coords;
@@ -53,12 +50,6 @@ public class Piece : MonoBehaviour
         Board = board;
         transform.position = board.CalculatePositionFromCoords(coords);
         board.SetPiece(this, coords);
-        SetMaterial(material);
-    }
-
-    public void SetMaterial(Material material)
-    {
-        MaterialSetter.SetMaterial(material);
     }
 
     public bool isFromSameTeam(Piece piece)
@@ -67,6 +58,7 @@ public class Piece : MonoBehaviour
         {
             return false;
         }
+
         return this.team == piece.team;
     }
 
@@ -97,7 +89,7 @@ public class Piece : MonoBehaviour
 
         return false;
     }
-    
+
     public Move GetMove(Vector2Int coords)
     {
         foreach (Move move in AvailableMoves)
@@ -120,7 +112,7 @@ public class Piece : MonoBehaviour
         numberOfMoves++;
         transform.position = targetPosition;
     }
-    
+
     public bool IsAttackingPieceOfType<T>() where T : Piece
     {
         foreach (Move move in AvailableMoves)
@@ -134,7 +126,7 @@ public class Piece : MonoBehaviour
         return false;
     }
 
-    public Piece GetPieceInDirection<T>(TeamColor team, Vector2Int startCoords,Vector2Int direction) where T : Piece
+    public Piece GetPieceInDirection<T>(TeamColor team, Vector2Int startCoords, Vector2Int direction) where T : Piece
     {
         Vector2Int coords = startCoords + direction;
         while (Board.CheckIfCoordsAreOnBoard(coords))
@@ -149,6 +141,7 @@ public class Piece : MonoBehaviour
 
                 return null;
             }
+
             coords += direction;
         }
 
