@@ -1,22 +1,17 @@
-using System;
-using System.Data;
-using System.IO;
-using System.Net;
-using System.Net.WebSockets;
-using System.Threading.Tasks;
 using UnityEngine;
 
 
 public class NetworkManager : SingletonMonobehavior<NetworkManager>, INetworkManager
 {
-    private GameClient _client;
+    private IGameClient _client;
     [SerializeField] private string host = "127.0.0.1";
     [SerializeField] private int port = 3000;
+
 
     protected override void Awake()
     {
         base.Awake();
-        _client = new GameClient($"ws://{host}:{port}");
+        _client = new GameClientWebGL($"ws://{host}:{port}");
     }
 
     private void Start()

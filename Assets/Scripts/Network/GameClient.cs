@@ -7,7 +7,7 @@ using WebSocketSharp;
 /// WebSocket Client class.
 /// Responsible for handling communication between server and client.
 /// </summary>
-public class GameClient
+public class GameClient : IGameClient
 {
     // // WebSocket
     // private ClientWebSocket ws = new ClientWebSocket();
@@ -47,7 +47,6 @@ public class GameClient
              Debug.LogError($"WebSocket Close: {e.Code}  {e.Reason}");
         };
     }
-
     public void ConnectToServer()
     {
         _client.Connect();
@@ -66,7 +65,6 @@ public class GameClient
     public void SendMessage<T>(T message)
     {
         var msg = NetworkHelper.ParseString(message);
-        Debug.Log($"Send Message: {msg}");
         _client.Send(msg);
     }
 }
